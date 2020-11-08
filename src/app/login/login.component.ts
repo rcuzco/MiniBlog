@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit
 
     entrar()
     {
+        console.log("navegando");
         this.router.navigate(["/entradas"]);
     }
 }
