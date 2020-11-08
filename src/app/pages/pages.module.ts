@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BlogEntradaComponent } from './blog-entrada/blog-entrada.component';
 import { BlogEntradaCrearComponent } from './blog-entrada-crear/blog-entrada-crear.component';
 import { BlogEntradaLecturaComponent } from './blog-entrada-lectura/blog-entrada-lectura.component';
@@ -31,6 +31,7 @@ import { BlogListaEntradasComponent } from './blog-lista-entradas/blog-lista-ent
             CommonModule,            
             PagesRoutingModule,
             FormsModule,            
+            ReactiveFormsModule
         ]
 
 })

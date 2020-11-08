@@ -1,23 +1,44 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Entrada } from '../../interfaces/entrada.interface';
 
 @Component({
     selector: 'app-blog-entrada',
     templateUrl: './blog-entrada.component.html',
     styleUrls: ['./blog-entrada.component.css']
 })
-export class BlogEntradaComponent implements OnInit
+export class BlogEntradaComponent implements OnInit, OnChanges
 {
+    @Input() entrada: Entrada;
+    @Input() entradaIndex: number;
+    id: number;
+    
+    constructor(public router: Router, private route: ActivatedRoute)
+    {
+        var entradas:Entrada[] = JSON.parse(localStorage.getItem('entradas'));
+        this.route.params.subscribe(paramertrosURL =>
+        {
+            this.id = paramertrosURL["id"];            
+            this.entrada = entradas[this.id];
 
-    constructor(public router: Router) { }
+        });
+        
+    }
+    
 
     ngOnInit(): void
-    {
+    {        
     }
 
-    irAEntrada(idEntrada: number)
+    ngOnChanges(changes: SimpleChanges): void
     {
-        this.router.navigate(['/entrada/1']);
+        
+        
+    }
+
+    irAEntrada()
+    {        
+        this.router.navigate(['/entrada/' + this.entradaIndex]);
     }
 
 }

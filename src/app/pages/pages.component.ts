@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -10,12 +11,12 @@ import { Router } from '@angular/router';
 })
 export class PagesComponent implements OnInit
 {
-
+    env = environment;
     constructor(public router: Router) { }
 
     ngOnInit(): void
     {
-        
+        console.log("this.env.isUserValidated", this.env.isUserValidated);
     }
 
     publicar()
@@ -28,6 +29,7 @@ export class PagesComponent implements OnInit
         let cerrarSesionOK = confirm("¿Confirma que desea cerrar sesión?");
         if (cerrarSesionOK)
         {
+            this.env.isUserValidated = false;
             this.router.navigate(['login']);
         }
         
@@ -35,6 +37,7 @@ export class PagesComponent implements OnInit
 
     iniciarSesion()
     {
+        this.env.isUserValidated = false;
         this.router.navigate(['login']);
     }
 

@@ -4,6 +4,7 @@ import { PagesComponent } from './pages.component';
 import { BlogListaEntradasComponent } from './blog-lista-entradas/blog-lista-entradas.component';
 import { BlogEntradaComponent } from './blog-entrada/blog-entrada.component';
 import { BlogEntradaCrearComponent } from './blog-entrada-crear/blog-entrada-crear.component';
+import { BlogEntradaLecturaComponent } from './blog-entrada-lectura/blog-entrada-lectura.component';
 
 
 
@@ -15,7 +16,7 @@ const routes: Routes =
             children:
                 [
                     { path: 'entradas', component: BlogListaEntradasComponent, data: {titulo:'Mis entradas'} },
-                    { path: 'entrada/:id', component: BlogEntradaComponent, data: { titulo: 'Mi entrada' } },
+                    { path: 'entrada/:id', component: BlogEntradaLecturaComponent, data: { titulo: 'Mi entrada' } },
                     { path: 'publicar', component: BlogEntradaCrearComponent, data: { titulo: 'Publicar entrada' } },
                     //{ path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' } },
                     //{ path: 'rxjs', component: RxjsComponent, data: { titulo: 'Observables RxJs' } },
