@@ -16,6 +16,11 @@ export class PagesComponent implements OnInit
 
     ngOnInit(): void
     {
+        let isUserValidated = localStorage.getItem("isUserValidated");
+        if (isUserValidated)
+        {
+            this.env.isUserValidated = true;
+        }
         console.log("this.env.isUserValidated", this.env.isUserValidated);
     }
 
@@ -29,6 +34,7 @@ export class PagesComponent implements OnInit
         let cerrarSesionOK = confirm("¿Confirma que desea cerrar sesión?");
         if (cerrarSesionOK)
         {
+            localStorage.removeItem('isUserValidated');
             this.env.isUserValidated = false;
             this.router.navigate(['login']);
         }

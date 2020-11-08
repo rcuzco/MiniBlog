@@ -6,9 +6,9 @@
 <div class="row mb-2" *ngIf="entradas">
     <div class="mb-2" *ngFor="let entrada of entradas; let i=index">
         <div class="card-deck" *ngIf="i % 3 == 0">
+            <app-blog-entrada *ngIf="i + 0 < entradas.length" [entradaIndex]="i+0" [entrada]="entradas[i+0]" style="cursor:pointer" class="card"></app-blog-entrada>
             <app-blog-entrada *ngIf="i + 1 < entradas.length" [entradaIndex]="i+1" [entrada]="entradas[i+1]" style="cursor:pointer" class="card"></app-blog-entrada>
             <app-blog-entrada *ngIf="i + 2 < entradas.length" [entradaIndex]="i+2" [entrada]="entradas[i+2]" style="cursor:pointer" class="card"></app-blog-entrada>
-            <app-blog-entrada *ngIf="i + 3 < entradas.length" [entradaIndex]="i+3" [entrada]="entradas[i+3]" style="cursor:pointer" class="card"></app-blog-entrada>
         </div>
     </div>
 </div>
